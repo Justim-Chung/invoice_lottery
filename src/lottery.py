@@ -10,3 +10,15 @@ def get_last_n_digits(number, n):
         str : the last n digits of the number 
     """
     return number[-n:]
+
+def is_match_last_n_digits(lhs, rhs, n):
+    """Given two numbers and n, return True if the last n digits match
+
+    Args:
+        lhs (str): the left hand side number
+        rhs (str): the right hand side number
+        n (int): the number of digits to compare
+    Returns:
+        bool : True if the last n digits match, False otherwise
+    """
+    return get_last_n_digits(lhs, n) == get_last_n_digits(rhs, n)
