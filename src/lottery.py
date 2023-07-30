@@ -1,4 +1,4 @@
-price_numbers = ["94899145", "71143793", "41055355"]
+winning_numbers = ["94899145", "71143793", "41055355"]
 
 def get_last_n_digits(number, n):
     """Given a number and n, return the last n digit
@@ -70,3 +70,33 @@ def get_winning_price(lhs, rhs):
         return 0
     else:
         return winning_price[max_matched_digits - 3]
+
+def get_winning_price_from_winning_numbers(winning_numbers, number):
+    """Given a list of winning numbers and a number, return the winning price
+
+    Args:
+        winning_numbers (list): a list of winning numbers
+        number (str): the number to check
+    Returns:
+        int : the winning price
+    """
+    result_p = 0
+    for winning_number in winning_numbers:
+        result_p += get_winning_price(number, winning_number)
+    return result_p
+
+def get_price_name_from_winning_numbers(winning_numbers, number):
+    """Given a list of winning numbers and a number, return the price name
+
+    Args:
+        winning_numbers (list): a list of winning numbers
+        number (str): the number to check
+    Returns:
+        str : the price name
+    """
+    result_n = '沒有中獎'
+    for winning_number in winning_numbers:
+        result_n = get_price_name(number, winning_number)
+        if result_n != '沒有中獎':
+            break
+    return result_n
