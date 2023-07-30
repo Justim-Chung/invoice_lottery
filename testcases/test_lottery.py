@@ -1,4 +1,4 @@
-from src.lottery import get_last_n_digits, is_match_last_n_digits, get_max_matched_digits, get_price_name
+from src.lottery import get_last_n_digits, is_match_last_n_digits, get_max_matched_digits, get_price_name, get_winning_price
 
 def test_get_last_3_digits():
     assert get_last_n_digits("94899145", 3) == "145"
@@ -32,3 +32,9 @@ def test_get_first_prirce_name():
 
 def test_get_second_prirce_name():
     assert get_price_name("94899145", "84899145") == "二獎"
+
+def test_get_lose_price():
+    assert get_winning_price("94899145", "71143793") == 0
+
+def test_get_sixth_price():
+    assert get_winning_price("94899145", "71143145") == 200

@@ -54,3 +54,19 @@ def get_price_name(lhs, rhs):
         return '沒有中獎'
     else:
         return price_name[max_matched_digits - 3]
+
+def get_winning_price(lhs, rhs):
+    """Given two numbers, return the winning price
+
+    Args:
+        lhs (str): the left hand side number
+        rhs (str): the right hand side number
+    Returns:
+        int : the winning price
+    """
+    winning_price = [200, 1000, 4000, 10000, 40000, 200000]
+    max_matched_digits = get_max_matched_digits(lhs, rhs)
+    if max_matched_digits < 3:
+        return 0
+    else:
+        return winning_price[max_matched_digits - 3]
